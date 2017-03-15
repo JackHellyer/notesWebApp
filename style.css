@@ -169,7 +169,7 @@ a{
   display: inline-block;
   border-radius:3px;
   padding:10px;
-  margin:0px 0px 0px 10px;
+  margin:0px 0px 20px 10px;
   width:calc(50%-20px);
 }
 #add a:last-child{
