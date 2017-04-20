@@ -6,6 +6,7 @@
         <!-- fonts and jquery -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700' rel='stylesheet' type='text/css'>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.2/dropbox.min.js"></script>
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -37,7 +38,7 @@
         <textarea></textarea>
         <!-- options buttons -->
         <a href="#">CANCEL</a>
-        <a href="#">SAVE</a>
+        <a id="save" href="http://localhost:8888/add.html">SAVE</a>
       </div>
 <!-- divider line -->
 <div id="div-bar-mid"></div>
@@ -48,5 +49,18 @@
 
     </div>
   </div>
+  <script>
+  var client;
+  $(function() {
+    client = new Dropbox.Client({key: 'urrp0ky2nralbkr'});
+    $('#save').click()
+    if (client.isAuthenticated()) {
+      //window.location.href = "http://localhost:8888/add.html";
+      $('#save').hide();
+
+
+    };
+  });
+  </script>
 </body>
 </html>
