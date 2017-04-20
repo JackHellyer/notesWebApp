@@ -38,7 +38,7 @@
         <textarea></textarea>
         <!-- options buttons -->
         <a href="#">CANCEL</a>
-        <a id="save" href="http://localhost:8888/add.html">SAVE</a>
+        <a id="save">SAVE</a>
       </div>
 <!-- divider line -->
 <div id="div-bar-mid"></div>
@@ -50,13 +50,13 @@
     </div>
   </div>
   <script>
-  var client;
+
   $(function() {
-    client = new Dropbox.Client({key: 'urrp0ky2nralbkr'});
+
     $('#save').click()
     if (client.isAuthenticated()) {
       //window.location.href = "http://localhost:8888/add.html";
-      $('#save').hide();
+
 
 
     };
