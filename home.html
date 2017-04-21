@@ -32,7 +32,7 @@
         <button type="button" id="viewnotes">View Current Notes</button>
 
       </div>
-      <a id="login" href="https://www.dropbox.com/oauth2/authorize">
+      <button type="button" id="login">Connect</button>
         <div>CONNECT</div>
         <div>OPEN YOUR NOTES FROM DROPBOX</div>
       </a>
@@ -60,15 +60,13 @@
   $(function() {
     client = new Dropbox.Client({key: 'urrp0ky2nralbkr'});
 
+    $('#login').click(client.authenticate());
+    client.authenticate({interactive: false}, function(error) {
+              if (error) {
+                  alert('Authentication error: ' + error);
+              }
 
-  $('#login').click(client.authenticate());
-
-  client.authenticate({interactive: false}, function (error) {
-            if (error) {
-                alert('Authentication error: ' + error);
-            }
-
-        });
+          });
 
         if (client.isAuthenticated()) {
           //return !!getAccessTokenFromUrl();
@@ -94,6 +92,8 @@
 
 
 
+
+
           // shoes that the user is authenticated
           client.getAccountInfo(function(error, accountInfo) {
           if (error) {
@@ -105,8 +105,8 @@
 
           $('#save').click(function(){
             // working but not ideal
-            var filename = prompt("Enter a filename and Extension?");
-            client.writeFile(filename,$('#textarea1').val(), function(error) {
+            var filename = prompt("Enter a filename?");
+            client.writeFile(filename + ".txt",$('#textarea1').val(), function(error) {
               if (error) {
                 console.log(error);  // Something went wrong.
                 return;
@@ -117,10 +117,7 @@
       });
 
   };
-
 });
-
-
-  </script>
+</script>
 </body>
 </html>
