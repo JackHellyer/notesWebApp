@@ -60,7 +60,7 @@
   $(function() {
     client = new Dropbox.Client({key: 'urrp0ky2nralbkr'});
 
-    $('#login').click(client.authenticate());
+    //$('#login').click(client.authenticate());
     client.authenticate({interactive: false}, function(error) {
               if (error) {
                   alert('Authentication error: ' + error);
@@ -88,12 +88,6 @@
 
           });
 
-
-
-
-
-
-
           // shoes that the user is authenticated
           client.getAccountInfo(function(error, accountInfo) {
           if (error) {
@@ -112,11 +106,25 @@
                 return;
               }
 
-          });
+            });
           $('#textarea1').val('');
-      });
+          });
 
-  };
+          }
+          else {
+          // show and set up the "Sign into Dropbox" button
+          var button = document.querySelector("#login");
+          button.setAttribute("class", "visible");
+          button.addEventListener("click", function() {
+            // The user will have to click an 'Authorize' button.
+            client.authenticate(function(error, client) {
+              if (error) {
+                return handleError(error);
+              }
+              //doSomethingCool();
+            });
+          });
+        }
 });
 </script>
 </body>
