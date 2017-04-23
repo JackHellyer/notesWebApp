@@ -101,7 +101,7 @@
             });
           $('#textarea1').val('');
           });
-
+          var filedatatemp = "";
           // edit notes code
           $('#editnotes').click(function(){
             var editfile = prompt("Enter a filename to Edit?");
@@ -112,6 +112,7 @@
               }
 
           });
+          filedatatemp = filedata;
           $('#textarea1').val(filedata);
           });
           }
