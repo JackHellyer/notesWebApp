@@ -75,7 +75,7 @@
           $('#save2').hide();
           // below works but just puts all of the files in a line i need to put them into a table and also need to find a
           // way to refresh the div after adding a new file
-          $('#viewnotes').click(function () {
+          /*$('#viewnotes').click(function () {
             client.readdir("/", function(error, entries) {
               if (error) {
                 console.log(error);  // Something went wrong.
@@ -85,7 +85,7 @@
               alert("Your Dropbox contains: \n" + entries.join("\n "));
               //$('#desc').append(entries);
             });
-          });
+          });*/
           // shoes that the user is authenticated
           client.getAccountInfo(function(error, accountInfo) {
           if (error) {
