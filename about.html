@@ -36,6 +36,7 @@
 
       <a href="home.html">HOME</a> &nbsp; -  &nbsp;
       <a href="about.html">ABOUT</a>
+      <button type="button" id="viewnotes">View Current Notes</button>
 
     </div>
   </div>
@@ -58,6 +59,18 @@
         // Something went wrong.
     }
     alert("Hello, " + accountInfo.name + "!");
+
+    });
+    $('#viewnotes').click(function () {
+      client.readdir("/", function(error, entries) {
+        if (error) {
+          console.log(error);  // Something went wrong.
+          return;
+        }
+        // this will create an dialog box with a list of files
+        alert("Your Dropbox contains: \n" + entries.join("\n "));
+        //$('#desc').append(entries);
+      });
     });
 
     }
