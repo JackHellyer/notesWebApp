@@ -45,7 +45,12 @@
   var client;
   $(function() {
     client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
-  if (client.isAuthenticated()) {
+    client.authenticate({interactive: false}, function(error) {
+              if (error) {
+                  alert('Authentication error: ' + error);
+              }
+          });
+    if (client.isAuthenticated()) {
     client.getAccountInfo(function(error, accountInfo) {
     if (error) {
       alert("not authenticated");
