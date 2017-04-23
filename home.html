@@ -105,7 +105,7 @@
           // edit notes code
           $('#editnotes').click(function(){
             var editfile = prompt("Enter a filename to Edit?");
-            client.readFile(editfile, ".txt", function(error, filedata) {
+            client.readFile(editfile + ".txt", function(error, filedata) {
               if (error) {
                 console.log(error);  // Something went wrong.
                 return;
