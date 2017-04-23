@@ -115,6 +115,18 @@
               //alert(filedatatemp);
               $('#textarea1').val("" + filedatatemp);
 
+              $('#save').click(function(){
+                // working but not ideal
+
+                client.writeFile(editfile + ".txt",$('#textarea1').val(), function(error) {
+                  if (error) {
+                    console.log(error);  // Something went wrong.
+                    return;
+                  }
+                });
+              $('#textarea1').val('');
+              });
+
           });
 
           });
