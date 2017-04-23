@@ -45,6 +45,7 @@
       <!-- options buttons -->
       <a href="#">CANCEL</a>
       <a id="save" href="#">SAVE</a>
+      <a id="save2" href="#">SAVE</a>
     </div>
 <!-- divider line -->
 <div id="div-bar-mid"></div>
@@ -70,6 +71,7 @@
           //return !!getAccessTokenFromUrl();
           //window.location.href = "http://localhost:8888/view.html";
           $('#login').hide();
+          $('#save2').hide();
           // below works but just puts all of the files in a line i need to put them into a table and also need to find a
           // way to refresh the div after adding a new file
           $('#viewnotes').click(function () {
@@ -104,6 +106,9 @@
           var filedatatemp = "";
           // edit notes code
           $('#editnotes').click(function(){
+
+            $('#save').hide();
+            $('#save2').show();
             var editfile = prompt("Enter a filename to Edit?");
             client.readFile(editfile + ".txt", function(error, filedata) {
               if (error) {
@@ -115,7 +120,7 @@
               //alert(filedatatemp);
               $('#textarea1').val("" + filedatatemp);
 
-              $('#save').click(function(){
+              $('#save2').click(function(){
                 // working but not ideal
 
                 client.writeFile(editfile + ".txt",$('#textarea1').val(), function(error) {
