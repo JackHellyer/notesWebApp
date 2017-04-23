@@ -30,7 +30,8 @@
 <!-- description and log in button section -->
       <div id="desc">
         <button type="button" id="viewnotes">View Current Notes</button>
-
+        <button type="button" id="editnotes">Edit a Note</button>
+        <button type="button" id="deletenotes">Delete a Note</button>
       </div>
       <button type="button" id="login">Connect</button>
         <div>CONNECT</div>
@@ -99,6 +100,19 @@
               }
             });
           $('#textarea1').val('');
+          });
+
+          // edit notes code
+          $('#editnotes').click(function(){
+            var editfile = promp("Enter a filename to Edit?");
+            client.readFile(editfile, ".txt", function(error, filedata) {
+              if (error) {
+                console.log(error);  // Something went wrong.
+                return;
+              }
+              $('#textarea1').val(filedata);
+          });
+
           });
           }
           else {
