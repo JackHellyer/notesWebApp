@@ -76,14 +76,14 @@
 
   <script>
 
-  //var client;
+  var client;
   $(function() {
-    /*client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
+    client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
     client.authenticate({interactive: false}, function(error) {
               if (error) {
                   alert('Authentication error: ' + error);
               }
-          });*/
+          });
     if (client.isAuthenticated()) {
 
     $('#viewnotes').click(function () {
