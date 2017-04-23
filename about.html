@@ -40,6 +40,8 @@
   </div>
 
   <script>
+
+  client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
   if (client.isAuthenticated()) {
     client.getAccountInfo(function(error, accountInfo) {
     if (error) {
