@@ -31,6 +31,7 @@
       <div id="desc">
         <!--<a id="viewnotes" href="View.html">View Current Notes</a>
         <a id="addnotes" href="add.html">Add a Note</a>-->
+        <button type="button" id="Add a new note">Add a New Note</button>
         <button type="button" id="viewnotes">View Current Notes</button>
         <button type="button" id="editnotes">Edit a Note</button>
         <button type="button" id="deletenotes">Delete a Note</button>
@@ -99,9 +100,6 @@
           alert("Hello, " + accountInfo.name + "!");
           });
           $('#save').click(function(){
-            $('textarea1').show();
-            $('#save').show();
-            $('#cancel').show();
             // working but not ideal
             var filename = prompt("Enter a filename?");
             if(filename === null)
