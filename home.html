@@ -146,6 +146,7 @@
             {
               if (error)
               {
+                alert("Filename might already exist, Try a different name");
                 // NOT TESTED alert(error);
                 console.log(error);  // Something went wrong.
                 return;
@@ -201,7 +202,7 @@
               {
                 // we could keep in this error validation or just write are own
                 //saying to check that the file they are trying to edit exist
-                alert(error);
+                alert("Filename might be incorrect, Try again");
                 console.log(error);  // Something went wrong.
                 return;
               }
@@ -223,8 +224,6 @@
                   }
                 });
               // emptying the textarea and hiding the second save button as
-              //$('#save').show();
-              //$('#save2').hide();
               $('#textarea1').val('');
               });
             });
