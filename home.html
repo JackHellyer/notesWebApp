@@ -39,6 +39,9 @@
       <button type="button" id="login">Connect</button>
         <div>CONNECT</div>
         <div>OPEN YOUR NOTES FROM DROPBOX</div>
+        <div id="listdir">
+
+        </div>
       </a>
     </div>
 
@@ -130,8 +133,7 @@
 
           // edit notes code
           var filedatatemp = "";
-          $('#editnotes').click(function()
-          {
+          $('#editnotes').click(function(){
 
             $('#textarea1').show();
             $('#save').hide();
@@ -143,19 +145,18 @@
                 console.log(error);  // Something went wrong.
                 return;
               }
-                var editfile = prompt("Enter a filename to Edit?");
               // this will create an dialog box with a list of files
-              alert("Your Dropbox contains: \n" + entries.join("\n ")
-                    + "\n" + editfile);
+              $('#listdir').append("Your Dropbox contains: \n" + entries.join("\n "));
               //$('#desc').append(entries);
+            });
+          });
 
-            //var editfile = prompt("Enter a filename to Edit?");
+            var editfile = prompt("Enter a filename to Edit?");
             if(editfile === null)
             {
 
               return;
             }
-
             client.readFile(editfile + ".txt", function(error, filedata) {
               if (error) {
                 console.log(error);  // Something went wrong.
@@ -184,9 +185,8 @@
 
 
           });
-          });
-          }
 
+          }
           else {
           // show and set up the "Sign into Dropbox" button
           var button = document.querySelector("#login");
