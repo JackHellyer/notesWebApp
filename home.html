@@ -64,139 +64,173 @@
   </div>
 
   <script>
-  //$('#textarea1').val('');
+
   var client;
-  $(function() {
+  $(function()
+  {
+    //authenticating dropbox
     client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
-    //$('#login').click(client.authenticate());
-    client.authenticate({interactive: false}, function(error) {
-              if (error) {
+    client.authenticate({interactive: false}, function(error)
+    {
+              if (error)
+              {
                   alert('Authentication error: ' + error);
               }
-          });
-        if (client.isAuthenticated()) {
-          //return !!getAccessTokenFromUrl();
-          //window.location.href = "http://localhost:8888/view.html";
+    });
+        if (client.isAuthenticated())
+        {
+          //hiding unwanted parts at this point
           $('#login').hide();
           $('#textarea1').hide();
           $('#listdir').hide();
           $('#save').hide();
           $('#save2').hide();
           $('#cancel').hide();
-          // below works but just puts all of the files in a line i need to put them into a table and also need to find a
-          // way to refresh the div after adding a new file
-          $('#viewnotes').click(function () {
-            client.readdir("/", function(error, entries) {
-              if (error) {
+
+          // we can probably get rid of this button as i have displayed the current files after you press
+          // the edit a file button.
+          //i was thinking we could have he textarea wth the file list in at on the left side of the page alongside
+          $('#viewnotes').click(function ()
+          {
+            client.readdir("/", function(error, entries)
+            {
+              if (error)
+              {
                 console.log(error);  // Something went wrong.
                 return;
               }
               // this will create an dialog box with a list of files
               alert("Your Dropbox contains: \n" + entries.join("\n "));
-              //$('#desc').append(entries);
+
             });
           });
-          // shoes that the user is authenticated
-          client.getAccountInfo(function(error, accountInfo) {
+          // shows that the user is authenticated
+          // can easily put this as a heading on some part of the webpage instead of the
+          // dialog box popping up when you go to the home page
+          client.getAccountInfo(function(error, accountInfo)
+          {
           if (error) {
             return showError(error);  // Something went wrong.
           }
           alert("Hello, " + accountInfo.name + "!");
           });
 
+          // adding a new note to dropbox
           $('#newnote').click(function()
           {
+            // shows the parts we need to achieve this
             $('#textarea1').show();
             $('#save').show();
             $('#cancel').show();
 
 
-          $('#save').click(function(){
-            // working but not ideal
+          $('#save').click(function()
+          {
+            // prompts the user for a filename after press save
             var filename = prompt("Enter a filename?");
+            // this if statement just makes sure if the user pressing cancel in
+            // the prompt dialog box it just returns
             if(filename === null)
             {
-
               return;
             }
-
-            client.writeFile(filename + ".txt",$('#textarea1').val(), function(error) {
-              if (error) {
+            // takes the string from the textarea and saves that to dropbox under the filename entered by the user
+            client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
+            {
+              if (error)
+              {
                 console.log(error);  // Something went wrong.
                 return;
               }
             });
-
+          // reset the textarea to empty
           $('#textarea1').val('');
           });
 
           });
 
           // edit notes code
+          // this var is used to load the current string from a file on dropbox
           var filedatatemp = "";
-          $('#editnotes').click(function(){
+          $('#editnotes').click(function()
+          {
+            // shows the parts we need
             $('#listdir').show();
             $('#textarea1').show();
-            $('#save').hide();
+            //$('#save').hide();
             $('#save2').show();
             $('#cancel').show();
 
-            client.readdir("/", function(error, entries) {
-              if (error) {
+            // reads in all files from the folder our app has access to on dropbox
+            client.readdir("/", function(error, entries)
+            {
+              if (error)
+              {
                 console.log(error);  // Something went wrong.
                 return;
               }
-
-              // this will create an dialog box with a list of files
+              // this adds the list of files into the listdir textarea, this is the
+              //only way i found to have them load on a seperate line
               $('#listdir').val("Your current notes are: \n" + entries.join("\n"));
-              //$('#desc').append(entries);
             });
 
-
+            // asks the user which file they would like to edit, again this is not ideal as
+            // it isn't user friendly but i couldn't find another way to do this
             var editfile = prompt("Enter a filename to Edit?");
+            // makes sure that the user is return without any issues when the press
+            // cancel on the dialog box
             if(editfile === null)
             {
-
               return;
             }
-            client.readFile(editfile + ".txt", function(error, filedata) {
-              if (error) {
+            // read the file using the name the user has given, we don't have
+            // any validation here need to add
+            // i have found some code which shows a progress bar when you upload a file
+            // we could add that
+            client.readFile(editfile + ".txt", function(error, filedata)
+            {
+              if (error)
+              {
                 console.log(error);  // Something went wrong.
                 return;
               }
 
               filedatatemp = filedata;
-              //alert(filedatatemp);
+              // loads the chosen file into the text area where it can be edited
               $('#textarea1').val("" + filedatatemp);
 
-              $('#save2').click(function(){
-                // working but not ideal
-
-                client.writeFile(editfile + ".txt",$('#textarea1').val(), function(error) {
-                  if (error) {
-                    console.log(error);  // Something went wrong.
+              $('#save2').click(function()
+              {
+                //uploads the new editing textarea to the same file name
+                client.writeFile(editfile + ".txt",$('#textarea1').val(), function(error)
+                {
+                  if (error)
+                  {
+                    // need to add validation in here
+                    console.log(error);
                     return;
                   }
                 });
+            // emptying the textarea and hiding the second save button as
             $('#textarea1').val('');
-            $('#save').show();
-            $('#save2').hide();
+            //$('#save').show();
+            //$('#save2').hide();
             });
-
           });
-
-
           });
-
           }
-          else {
-          // show and set up the "Sign into Dropbox" button
+          else
+          {
+          // show the Sign into Dropbox button
           var button = document.querySelector("#login");
           button.setAttribute("class", "visible");
-          button.addEventListener("click", function() {
+          button.addEventListener("click", function()
+          {
             // The user will have to click an 'Authorize' button.
-            client.authenticate(function(error, client) {
-              if (error) {
+            client.authenticate(function(error, client)
+            {
+              if (error)
+              {
                 return handleError(error);
               }
 
