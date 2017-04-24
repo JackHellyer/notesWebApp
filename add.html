@@ -52,17 +52,23 @@
   </div>
   <script>
   var client;
-  $(function() {
+  /*$(function()
+  {
     client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
-    client.authenticate({interactive: false}, function(error) {
-              if (error) {
+
+    client.authenticate({interactive: false}, function(error)
+    {
+              if (error)
+              {
                   alert('Authentication error: ' + error);
               }
-          });
+    });
     if (client.isAuthenticated())
     {
-      client.getAccountInfo(function(error, accountInfo) {
-      if (error) {
+      client.getAccountInfo(function(error, accountInfo)
+      {
+      if (error)
+      {
         alert("not authenticated");
         return showError(error);
           // Something went wrong.
@@ -80,14 +86,62 @@
           }
         });
       $('#textarea1').val('');
-    });*/
+    });
 
     }
-    else {
+    else
+    {
       alert("not working");
     }
 
-  });
+  });*/
+  $(function() {
+    client = new Dropbox.Client({key: 'lbuxjc4cdhqdyy4'});
+    //$('#login').click(client.authenticate());
+    client.authenticate({interactive: false}, function(error) {
+              if (error) {
+                  alert('Authentication error: ' + error);
+              }
+          });
+        if (client.isAuthenticated()) {
+          //return !!getAccessTokenFromUrl();
+          //window.location.href = "http://localhost:8888/view.html";
+          $('#login').hide();
+          $('#save2').hide();
+          // below works but just puts all of the files in a line i need to put them into a table and also need to find a
+          // way to refresh the div after adding a new file
+          /*$('#viewnotes').click(function () {
+            client.readdir("/", function(error, entries) {
+              if (error) {
+                console.log(error);  // Something went wrong.
+                return;
+              }
+              // this will create an dialog box with a list of files
+              alert("Your Dropbox contains: \n" + entries.join("\n "));
+              //$('#desc').append(entries);
+            });
+          });*/
+          // shoes that the user is authenticated
+          client.getAccountInfo(function(error, accountInfo) {
+          if (error) {
+            return showError(error);  // Something went wrong.
+          }
+          alert("Hello, " + accountInfo.name + "!");
+          });
+          $('#save').click(function(){
+            // working but not ideal
+            var filename = prompt("Enter a filename?");
+            client.writeFile(filename + ".txt",$('#textarea1').val(), function(error) {
+              if (error) {
+                console.log(error);  // Something went wrong.
+                return;
+              }
+            });
+          $('#textarea1').val('');
+          });
+        }
+      });
+
   </script>
 </body>
 </html>
