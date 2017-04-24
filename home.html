@@ -89,6 +89,8 @@
           //$('#cancel').hide();
           $('#editHeader').hide();
 
+          //the following code just allows the user to add a note as soon
+          // they go onto the home page
           $('#save').click(function()
           {
             // prompts the user for a filename after press save
@@ -105,7 +107,7 @@
             {
               if (error)
               {
-                alert("Filename might already exist, Try a different name");
+                //alert("Filename might already exist, Try a different name");
                 // NOT TESTED alert(error);
                 console.log(error);  // Something went wrong.
                 return;
