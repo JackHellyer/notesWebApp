@@ -138,11 +138,12 @@
             // this if statement just makes sure if the user pressing cancel in
             // the prompt dialog box it just returns
 
-            if(filename === "")
+            if(filename === null)
             {
 
-              alert("Filename can't be empty");
+              
               return;
+              alert("Filename can't be empty");
             }
             // takes the string from the textarea and saves that to dropbox under the filename entered by the user
             client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
