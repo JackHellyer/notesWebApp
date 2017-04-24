@@ -37,7 +37,7 @@
 
       </div>
       <button type="button" id="login">Connect to Dropbox</button>
-
+        <p id="editHeader">Edit a Note Below</p>
         <textarea id="listdir">
 
         </textarea>
@@ -87,6 +87,7 @@
           //$('#save').hide();
           $('#save2').hide();
           //$('#cancel').hide();
+          $('#editHeader').hide();
 
           // we can probably get rid of this button as i have displayed the current files after you press
           // the edit a file button.
@@ -160,6 +161,8 @@
             //$('#textarea1').show();
             $('#save').hide();
             $('#save2').show();
+            $('#addHeader').hide();
+            $('#editHeader').show();
             //$('#cancel').show();
 
             // reads in all files from the folder our app has access to on dropbox
