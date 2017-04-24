@@ -60,6 +60,15 @@
           });
     if (client.isAuthenticated())
     {
+      client.getAccountInfo(function(error, accountInfo) {
+      if (error) {
+        alert("not authenticated");
+        return showError(error);
+          // Something went wrong.
+      }
+      alert("Hello, " + accountInfo.name + "!");
+
+      });
       $('#save').click(function(){
         // working but not ideal
         var filename = prompt("Enter a filename?");
