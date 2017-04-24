@@ -102,6 +102,10 @@
               alert("Filename can't be empty");
               return;
             }
+            else
+            {
+
+
             // takes the string from the textarea and saves that to dropbox under the filename entered by the user
             client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
             {
@@ -116,6 +120,7 @@
             });
           // reset the textarea to empty
           $('#textarea1').val('');
+          } 
           });
 
           // we can probably get rid of this button as i have displayed the current files after you press
@@ -234,7 +239,7 @@
               {
                 // we could keep in this error validation or just write are own
                 //saying to check that the file they are trying to edit exist
-                //alert("Filename might be incorrect, Try again");
+                alert("Filename could be incorrect, Try again");
                 console.log(error);  // Something went wrong.
                 return;
               }
