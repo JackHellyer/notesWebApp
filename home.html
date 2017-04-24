@@ -112,7 +112,7 @@
             var filename = prompt("Enter a filename?");
             if(filename === null)
             {
-              //$('#textarea1').val('');
+
               return;
             }
 
@@ -127,12 +127,15 @@
           });
 
           });
-          var filedatatemp = "";
+
           // edit notes code
+          var filedatatemp = "";
           $('#editnotes').click(function(){
 
+            $('#textarea1').show();
             $('#save').hide();
             $('#save2').show();
+            $('#cancel').show();
             var editfile = prompt("Enter a filename to Edit?");
             if(editfile === null)
             {
