@@ -80,11 +80,11 @@
         {
           //hiding unwanted parts at this point
           $('#login').hide();
-          $('#textarea1').hide();
+          //$('#textarea1').hide();
           $('#listdir').hide();
-          $('#save').hide();
+          //$('#save').hide();
           $('#save2').hide();
-          $('#cancel').hide();
+          //$('#cancel').hide();
 
           // we can probably get rid of this button as i have displayed the current files after you press
           // the edit a file button.
@@ -154,10 +154,10 @@
           {
             // shows the parts we need
             $('#listdir').show();
-            $('#textarea1').show();
-            //$('#save').hide();
+            //$('#textarea1').show();
+            $('#save').hide();
             $('#save2').show();
-            $('#cancel').show();
+            //$('#cancel').show();
 
             // reads in all files from the folder our app has access to on dropbox
             client.readdir("/", function(error, entries)
@@ -213,6 +213,8 @@
                   }
                 });
               // emptying the textarea and hiding the second save button as
+              $('#save').hide();
+              $('#save2').hide();
               $('#textarea1').val('');
               });
             });
