@@ -98,12 +98,18 @@
           $('#save').click(function(){
             // working but not ideal
             var filename = prompt("Enter a filename?");
+            if(filename === null)
+            {
+              return;
+            }
+
             client.writeFile(filename + ".txt",$('#textarea1').val(), function(error) {
               if (error) {
                 console.log(error);  // Something went wrong.
                 return;
               }
             });
+
           $('#textarea1').val('');
           });
           var filedatatemp = "";
@@ -113,6 +119,10 @@
             $('#save').hide();
             $('#save2').show();
             var editfile = prompt("Enter a filename to Edit?");
+            if(editfile === null)
+            {
+              return;
+            }
             client.readFile(editfile + ".txt", function(error, filedata) {
               if (error) {
                 console.log(error);  // Something went wrong.
