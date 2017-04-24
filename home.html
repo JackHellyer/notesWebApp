@@ -29,7 +29,7 @@
 
 <!-- description and log in button section -->
       <div id="desc">
-        
+        <p id="loggedin"></p>
         <button type="button" id="newnote">Add a New Note</button>
         <button type="button" id="viewnotes">View Current Notes</button>
         <button type="button" id="editnotes">Edit a Note</button>
@@ -112,6 +112,7 @@
             return showError(error);  // Something went wrong.
           }
           alert("Hello, " + accountInfo.name + "!");
+          $('#loggedin').append(accountInfo.name + "is logged In");
           });
 
           // adding a new note to dropbox
