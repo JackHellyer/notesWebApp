@@ -110,7 +110,7 @@
             }
             else if(filename)
             {
-              client.readdir("/", function(error, entries)
+              /*client.readdir("/", function(error, entries)
               {
                 if (error)
                 {
@@ -120,36 +120,30 @@
                 // this will create an dialog box with a list of files
                 var filelist = (entries);
                 });
-                if(filelist.match(/filename.*/))
+                if(filelist.match(/filename.*//*))
                 {
                   alert("filename is unavailable");
-                  
+
 
                 }
                 else
                 {
-
-
-
-
-
-
-
-            // takes the string from the textarea and saves that to dropbox under the filename entered by the user
-            client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
-            {
-              if (error)
-              {
-                //alert("Filename might already exist, Try a different name");
-                // NOT TESTED alert(error);
-                console.log(error);  // Something went wrong.
-                return;
-              }
-              alert(filename + ".txt has been saved to your DropBox");
-            });
+                */
+                // takes the string from the textarea and saves that to dropbox under the filename entered by the user
+                client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
+                {
+                  if (error)
+                  {
+                    //alert("Filename might already exist, Try a different name");
+                    // NOT TESTED alert(error);
+                    console.log(error);  // Something went wrong.
+                    return;
+                  }
+                  alert(filename + ".txt has been saved to your DropBox");
+                });
           // reset the textarea to empty
           $('#textarea1').val('');
-        }
+          }
           }
           else
           {
