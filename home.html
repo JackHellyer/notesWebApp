@@ -139,6 +139,7 @@
             // the prompt dialog box it just returns
             if(filename === null)
             {
+              alert("Filename can't be empty");
               return;
             }
             // takes the string from the textarea and saves that to dropbox under the filename entered by the user
@@ -146,7 +147,7 @@
             {
               if (error)
               {
-                alert("Filename might already exist, Try a different name");
+                //alert("Filename might already exist, Try a different name");
                 // NOT TESTED alert(error);
                 console.log(error);  // Something went wrong.
                 return;
@@ -190,6 +191,7 @@
             // cancel on the dialog box
             if(editfile === null)
             {
+              alert("Filename can't be empty");
               return;
             }
             // read the file using the name the user has given, we don't have
