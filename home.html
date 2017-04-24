@@ -110,6 +110,25 @@
             }
             else if(filename)
             {
+              client.readdir("/", function(error, entries)
+              {
+                if (error)
+                {
+                  console.log(error);  // Something went wrong.
+                  return;
+                }
+                // this will create an dialog box with a list of files
+                var filelist = (entries);
+                });
+                if(filelist.match(/filename.*/))
+                {
+                  alert("filename is unavailable");
+                  return;
+
+                }
+
+
+
 
 
             // takes the string from the textarea and saves that to dropbox under the filename entered by the user
