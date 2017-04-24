@@ -79,6 +79,7 @@
           //window.location.href = "http://localhost:8888/view.html";
           $('#login').hide();
           $('#textarea1').hide();
+          $('#listdir').hide();
           $('#save').hide();
           $('#save2').hide();
           $('#cancel').hide();
@@ -134,7 +135,7 @@
           // edit notes code
           var filedatatemp = "";
           $('#editnotes').click(function(){
-
+            $('#listdir').show();
             $('#textarea1').show();
             $('#save').hide();
             $('#save2').show();
