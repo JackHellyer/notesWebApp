@@ -137,7 +137,7 @@
             var filename = prompt("Enter a filename?");
             // this if statement just makes sure if the user pressing cancel in
             // the prompt dialog box it just returns
-            if(filename === null)
+            if(filename === null || "")
             {
               alert("Filename can't be empty");
               return;
@@ -189,7 +189,7 @@
             var editfile = prompt("Enter a filename to Edit?");
             // makes sure that the user is return without any issues when the press
             // cancel on the dialog box
-            if(editfile === null)
+            if(editfile === null || "")
             {
               alert("Filename can't be empty");
               return;
