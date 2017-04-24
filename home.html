@@ -137,20 +137,17 @@
             var filename = prompt("Enter a filename?");
             // this if statement just makes sure if the user pressing cancel in
             // the prompt dialog box it just returns
-
             if(filename === null)
             {
-
-
-              return;
               alert("Filename can't be empty");
+              return;
             }
             // takes the string from the textarea and saves that to dropbox under the filename entered by the user
             client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
             {
               if (error)
               {
-                //alert("Filename might already exist, Try a different name");
+                alert("Filename might already exist, Try a different name");
                 // NOT TESTED alert(error);
                 console.log(error);  // Something went wrong.
                 return;
@@ -194,11 +191,9 @@
             // cancel on the dialog box
             if(editfile === null)
             {
-
-              return;
               alert("Filename can't be empty");
+              return;
             }
-
             // read the file using the name the user has given, we don't have
             // any validation here need to add
             // i have found some code which shows a progress bar when you upload a file
@@ -234,7 +229,6 @@
               $('#textarea1').val('');
               });
             });
-
           });
           }
           else
