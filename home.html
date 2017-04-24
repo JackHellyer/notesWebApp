@@ -31,7 +31,7 @@
       <div id="desc">
         <!--<a id="viewnotes" href="View.html">View Current Notes</a>
         <a id="addnotes" href="add.html">Add a Note</a>-->
-        <button type="button" id="Add a new note">Add a New Note</button>
+        <button type="button" id="newnote">Add a New Note</button>
         <button type="button" id="viewnotes">View Current Notes</button>
         <button type="button" id="editnotes">Edit a Note</button>
         <button type="button" id="deletenotes">Delete a Note</button>
@@ -78,7 +78,7 @@
           $('#textarea1').hide();
           $('#save').hide();
           $('#save2').hide();
-          $('cancel').hide();
+          $('#cancel').hide();
           // below works but just puts all of the files in a line i need to put them into a table and also need to find a
           // way to refresh the div after adding a new file
           $('#viewnotes').click(function () {
@@ -99,6 +99,14 @@
           }
           alert("Hello, " + accountInfo.name + "!");
           });
+
+          $('#newnote').click(function()
+          {
+            $('#textarea1').show();
+            $('#save').show();
+            $('#cancel').show();
+
+
           $('#save').click(function(){
             // working but not ideal
             var filename = prompt("Enter a filename?");
@@ -116,6 +124,8 @@
             });
 
           $('#textarea1').val('');
+          });
+
           });
           var filedatatemp = "";
           // edit notes code
