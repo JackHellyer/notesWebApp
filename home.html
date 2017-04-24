@@ -99,6 +99,9 @@
           alert("Hello, " + accountInfo.name + "!");
           });
           $('#save').click(function(){
+            $('textarea1').show();
+            $('#save').show();
+            $('#cancel').show();
             // working but not ideal
             var filename = prompt("Enter a filename?");
             if(filename === null)
