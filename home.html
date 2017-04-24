@@ -89,6 +89,32 @@
           //$('#cancel').hide();
           $('#editHeader').hide();
 
+          $('#save').click(function()
+          {
+            // prompts the user for a filename after press save
+            var filename = prompt("Enter a filename?");
+            // this if statement just makes sure if the user pressing cancel in
+            // the prompt dialog box it just returns
+            if(filename === null)
+            {
+              alert("Filename can't be empty");
+              return;
+            }
+            // takes the string from the textarea and saves that to dropbox under the filename entered by the user
+            client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
+            {
+              if (error)
+              {
+                alert("Filename might already exist, Try a different name");
+                // NOT TESTED alert(error);
+                console.log(error);  // Something went wrong.
+                return;
+              }
+            });
+          // reset the textarea to empty
+          $('#textarea1').val('');
+          });
+
           // we can probably get rid of this button as i have displayed the current files after you press
           // the edit a file button.
           //i was thinking we could have he textarea wth the file list in at on the left side of the page alongside
