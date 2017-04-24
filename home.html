@@ -30,7 +30,7 @@
 <!-- description and log in button section -->
       <div id="desc">
         <p id="loggedin"></p>
-        <button type="button" id="newnote">Add a New Note</button>
+        <button type="button" href="home.html" id="newnote">Add a New Note</button>
         <button type="button" id="viewnotes">View Current Notes</button>
         <button type="button" id="editnotes">Edit a Note</button>
         <!-- don't know how to delete a file from dropbox <button type="button" id="deletenotes">Delete a Note</button>-->
@@ -97,7 +97,7 @@
 
           //the following code just allows the user to add a note as soon
           // they go onto the home page
-          $('#save').click(function()
+          /*$('#save').click(function()
           {
             // prompts the user for a filename after press save
             var filename = prompt("Enter a filename?");
@@ -106,7 +106,7 @@
             if(filename === "")
             {
               alert("Filename can't be empty");
-              
+
             }
             else if(filename)
             {
@@ -129,7 +129,7 @@
                 }
                 else
                 {
-                */
+                *
                 // takes the string from the textarea and saves that to dropbox under the filename entered by the user
                 client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
                 {
@@ -150,7 +150,7 @@
           {
             return;
           }
-        });
+        });*/
 
           // we can probably get rid of this button as i have displayed the current files after you press
           // the edit a file button.
