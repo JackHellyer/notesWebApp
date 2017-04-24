@@ -29,9 +29,9 @@
 
 <!-- description and log in button section -->
       <div id="desc">
-        <a id="viewnotes" href="View.html">View Current Notes</a>
-        <a id="addnotes" href="add.html">Add a Note</a>
-        <!--<button type="button" id="viewnotes" href="View.html">View Current Notes</button>-->
+        <!--<a id="viewnotes" href="View.html">View Current Notes</a>
+        <a id="addnotes" href="add.html">Add a Note</a>-->
+        <button type="button" id="viewnotes">View Current Notes</button>
         <button type="button" id="editnotes">Edit a Note</button>
         <button type="button" id="deletenotes">Delete a Note</button>
       </div>
@@ -74,10 +74,12 @@
           //return !!getAccessTokenFromUrl();
           //window.location.href = "http://localhost:8888/view.html";
           $('#login').hide();
+          $('#textarea1').hide();
+          $('#save').hide();
           $('#save2').hide();
           // below works but just puts all of the files in a line i need to put them into a table and also need to find a
           // way to refresh the div after adding a new file
-          /*$('#viewnotes').click(function () {
+          $('#viewnotes').click(function () {
             client.readdir("/", function(error, entries) {
               if (error) {
                 console.log(error);  // Something went wrong.
@@ -87,7 +89,7 @@
               alert("Your Dropbox contains: \n" + entries.join("\n "));
               //$('#desc').append(entries);
             });
-          });*/
+          });
           // shoes that the user is authenticated
           client.getAccountInfo(function(error, accountInfo) {
           if (error) {
@@ -122,7 +124,7 @@
             var editfile = prompt("Enter a filename to Edit?");
             if(editfile === null)
             {
-              $('#textarea1').val('');
+
               return;
             }
             client.readFile(editfile + ".txt", function(error, filedata) {
