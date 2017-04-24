@@ -179,6 +179,7 @@
                 console.log(error);  // Something went wrong.
                 return;
               }
+              alert(filename + ".txt has been saved to your DropBox");
             });
           // reset the textarea to empty
           $('#textarea1').val('');
@@ -236,6 +237,7 @@
                 return;
               }
 
+
               filedatatemp = filedata;
               // loads the chosen file into the text area where it can be edited
               $('#textarea1').val("" + filedatatemp);
@@ -251,6 +253,7 @@
                     console.log(error);
                     return;
                   }
+                  alert(editfile + ".txt" has been edited and saved to Dropbox);
                 });
               // emptying the textarea and hiding the second save button as
               $('#textarea1').val('');
