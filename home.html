@@ -101,6 +101,7 @@
           $('#textareaviewnote').hide();
           $('selectedit').hide();
           $('selectview').hide();
+          $('viewHeader').hide();
 
           //the following code just allows the user to add a note as soon
           // they go onto the home page
@@ -168,6 +169,7 @@
             $('#listdir').show();
             $('#textareaviewnote').show();
             $('#selectview').show();
+            $('viewHeader').show();
 
             client.readdir("/", function(error, entries)
             {
