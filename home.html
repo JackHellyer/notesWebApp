@@ -37,6 +37,9 @@
         <!-- don't know how to delete a file from dropbox <button type="button" id="deletenotes">Delete a Note</button>-->
 
       </div>
+      <p id="preauthdesc">Quick Notes allows you to create and Edit Notes which will be saved straight to dropbox.
+      Dropbox is a website which holds your data and can be accessed from anyway, to find out more about dropbox https://www.dropbox.com/about click here</p>
+
       <button type="button" id="login">Connect to Dropbox</button>
       <!-- i want to move this to the side of the page using <aside> maybe-->
 
@@ -106,6 +109,7 @@
           $('#selectedit').hide();
           $('#selectview').hide();
           $('#viewHeader').hide();
+          $('#preauthdesc').hide();
 
           //the following code just allows the user to add a note as soon
           // they go onto the home page
@@ -434,6 +438,9 @@
             $('#selectview').hide();
             $('#textareaviewnote').hide();
             $('#viewHeader').hide();
+            $('#viewnotes').hide();
+            $('#newnote').hide();
+            $('#editnotes')hide();
           // show the Sign into Dropbox button
           var button = document.querySelector("#login");
           button.setAttribute("class", "visible");
