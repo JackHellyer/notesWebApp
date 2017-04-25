@@ -48,14 +48,17 @@
       <!-- textarea to create and add a note to api -->
       <p id="addHeader"><b>Add a Note Below</b></p>
       <textarea id="textarea1"></textarea>
+      
       <p id="viewHeader"><b>View a Note</b></p>
       <button type="button" id="selectview">Press to Select File</button>
-      <button type="button" id="selectedit">Press to Select File</button>
+      <textarea readonly id="textareaviewnote" style="width:calc(75% - 22px); float:left; padding:10px;"></textarea>
+
       <p id="editHeader"><b>Edit a Note Below</b></p>
+      <button type="button" id="selectedit">Press to Select File</button>
       <textarea readonly id="listdir" style="width:calc(25% - 22px); float:left; padding:10px;">
       </textarea>
       <textarea id="textarea2" style="width:calc(75% - 22px); float:left; padding:10px;"></textarea>
-      <textarea readonly id="textareaviewnote" style="width:calc(75% - 22px); float:left; padding:10px;"></textarea>
+
       <!-- options buttons -->
       <a id="cancel" href="home.html">CANCEL</a>
       <a id="save" href="#">SAVE</a>
