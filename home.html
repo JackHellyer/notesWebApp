@@ -48,7 +48,7 @@
       <!-- textarea to create and add a note to api -->
       <p id="addHeader"><b>Add a Note Below</b></p>
       <textarea id="textarea1"></textarea>
-      <button type="button" id="selectedit">View Current Notes</button>
+      <button type="button" id="selectedit">Name of File to Edit</button>
       <p id="editHeader"><b>Edit a Note Below</b></p>
       <textarea readonly id="listdir" style="width:calc(25% - 22px); float:left; padding:10px;">
       </textarea>
@@ -250,12 +250,6 @@
             $('#textarea1').hide();
             //$('#cancel').show();
             $('#loggedin').hide();
-
-            $('#selectedit').click(function()
-            {
-
-
-
             // reads in all files from the folder our app has access to on dropbox
             client.readdir("/", function(error, entries)
             {
@@ -268,6 +262,10 @@
               //only way i found to have them load on a seperate line
               $('#listdir').val("CURRENT FILES: \n" + entries.join("\n"));
             });
+
+            $('#selectedit').click(function()
+            {
+
 
             // asks the user which file they would like to edit, again this is not ideal as
             // it isn't user friendly but i couldn't find another way to do this
