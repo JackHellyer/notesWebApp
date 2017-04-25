@@ -110,6 +110,11 @@ a{
 #container #t-bar a:hover{
   background:#0071ce;
 }
+.listz{
+  width:calc(50% - 20px);
+  padding:10px;
+  float:left;
+}
 .note{
   text-align:left;
   border:1px solid #000;
