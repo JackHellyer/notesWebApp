@@ -48,7 +48,7 @@
       <!-- textarea to create and add a note to api -->
       <p id="addHeader"><b>Add a Note Below</b></p>
       <textarea id="textarea1"></textarea>
-      
+
       <p id="viewHeader"><b>View a Note</b></p>
       <button type="button" id="selectview">Press to Select File</button>
       <textarea readonly id="textareaviewnote" style="width:calc(75% - 22px); float:left; padding:10px;"></textarea>
@@ -173,6 +173,8 @@
             $('#textareaviewnote').show();
             $('#selectview').show();
             $('viewHeader').show();
+            $('selectedit').hide();
+            $('editHeader').hide();
 
             client.readdir("/", function(error, entries)
             {
@@ -268,6 +270,9 @@
             $('#editHeader').hide();
             $('#textarea2').hide();
             $('#loggin').hide();
+            $('#selectedit').hide();
+            $('#selectview').hide();
+            $('#textareaviewnote').hide();
 
 
           /*$('#save').click(function()
@@ -322,7 +327,11 @@
             $('#textarea1').hide();
             //$('#cancel').show();
             $('#loggedin').hide();
+
             $('#selectedit').show();
+            $('#selectview').hide();
+            $('viewHeader').hide();
+            $('#textareaviewnote').hide();
             // reads in all files from the folder our app has access to on dropbox
             client.readdir("/", function(error, entries)
             {
