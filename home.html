@@ -99,6 +99,8 @@
           $('#textarea2').hide();
           $('#textarea1').show();
           $('#textareaviewnote').hide();
+          $('selectedit').hide();
+          $('selectview').hide();
 
           //the following code just allows the user to add a note as soon
           // they go onto the home page
@@ -165,6 +167,7 @@
 
             $('#listdir').show();
             $('#textareaviewnote').show();
+            $('#selectview').show();
 
             client.readdir("/", function(error, entries)
             {
@@ -314,6 +317,7 @@
             $('#textarea1').hide();
             //$('#cancel').show();
             $('#loggedin').hide();
+            $('#selectedit').show();
             // reads in all files from the folder our app has access to on dropbox
             client.readdir("/", function(error, entries)
             {
