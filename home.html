@@ -182,7 +182,7 @@
               //only way i found to have them load on a seperate line
               $('#listdir').val("CURRENT FILES: \n" + entries.join("\n"));
             });
-
+            var viewfiletemp = "";
             $('#selectview').click(function()
             {
 
@@ -217,9 +217,9 @@
               }
 
 
-              filedatatemp = filedata;
+              viewfiletemp = filedata;
               // loads the chosen file into the text area where it can be edited
-              $('#textarea2').val("" + filedatatemp);
+              $('#textareaviewnote').val("" + viewfiletemp);
             });
             }
             else
