@@ -110,11 +110,6 @@ a{
 #container #t-bar a:hover{
   background:#0071ce;
 }
-.listz{
-  width:calc(50% - 22px);
-  padding:10px;
-  float:left;
-}
 .note{
   text-align:left;
   border:1px solid #000;
@@ -158,9 +153,11 @@ a{
   overflow:hidden;
 }
 #add textarea{
-
+  width:calc(100% - 22px);
   border:1px solid #000;
   border-radius:3px;
+  padding:10px;
+  margin:15px 0px 15px 0px;
   min-height:200px;
 }
 #content textarea{
