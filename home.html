@@ -48,12 +48,14 @@
       <!-- textarea to create and add a note to api -->
       <p id="addHeader"><b>Add a Note Below</b></p>
       <textarea id="textarea1"></textarea>
+      <p id="viewHeader"><b>View a Note</b></p>
+      <button type="button" id="selectview">Press to Select File</button>
       <button type="button" id="selectedit">Press to Select File</button>
       <p id="editHeader"><b>Edit a Note Below</b></p>
       <textarea readonly id="listdir" style="width:calc(25% - 22px); float:left; padding:10px;">
       </textarea>
       <textarea id="textarea2" style="width:calc(75% - 22px); float:left; padding:10px;"></textarea>
-
+      <textarea readonly id="textareaviewnote" style="width:calc(75% - 22px); float:left; padding:10px;"></textarea>
       <!-- options buttons -->
       <a id="cancel" href="home.html">CANCEL</a>
       <a id="save" href="#">SAVE</a>
@@ -96,6 +98,7 @@
           $('#editHeader').hide();
           $('#textarea2').hide();
           $('#textarea1').show();
+          $('#textareaviewnote').hide();
 
           //the following code just allows the user to add a note as soon
           // they go onto the home page
@@ -159,7 +162,67 @@
           //i was thinking we could have he textarea wth the file list in at on the left side of the page alongside
           $('#viewnotes').click(function ()
           {
+
+            $('#listdir').show();
+            $('#textareaviewnote').show();
+
             client.readdir("/", function(error, entries)
+            {
+              if (error)
+              {
+                console.log(error);  // Something went wrong.
+                return;
+              }
+              // this adds the list of files into the listdir textarea, this is the
+              //only way i found to have them load on a seperate line
+              $('#listdir').val("CURRENT FILES: \n" + entries.join("\n"));
+            });
+
+            $('#selectview').click(function()
+            {
+
+
+            // asks the user which file they would like to edit, again this is not ideal as
+            // it isn't user friendly but i couldn't find another way to do this
+            var viewfile = prompt("Enter a filename to View?");
+            // makes sure that the user is return without any issues when the press
+            // cancel on the dialog box
+            if(viewfile === "")
+            {
+              alert("Filename can't be empty");
+
+
+            }
+            else if(viewfile)
+            {
+
+            // read the file using the name the user has given, we don't have
+            // any validation here need to add
+            // i have found some code which shows a progress bar when you upload a file
+            // we could add that
+            client.readFile(editfile + ".txt", function(error, filedata)
+            {
+              if (error)
+              {
+                // we could keep in this error validation or just write are own
+                //saying to check that the file they are trying to edit exist
+                alert("Filename could be incorrect, Try again");
+                console.log(error);  // Something went wrong.
+                return;
+              }
+
+
+              filedatatemp = filedata;
+              // loads the chosen file into the text area where it can be edited
+              $('#textarea2').val("" + filedatatemp);
+            });
+            }
+            else
+            {
+                return;
+            }
+
+            /*client.readdir("/", function(error, entries)
             {
               if (error)
               {
@@ -169,8 +232,9 @@
               // this will create an dialog box with a list of files
               alert("Your Dropbox contains: \n" + entries.join("\n "));
 
-            });
+            });*/
           });
+        });
           // shows that the user is authenticated
           // can easily put this as a heading on some part of the webpage instead of the
           // dialog box popping up when you go to the home page
