@@ -302,9 +302,9 @@ $(function()
             {
               // we could keep in this error validation or just write are own
               //saying to check that the file they are trying to edit exist
-
               alert("Filename could be incorrect, Try again");
               console.log(error);  // Something went wrong.
+              return;
             }
 
             filedatatemp = filedata;
