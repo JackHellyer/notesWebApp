@@ -287,9 +287,7 @@ $(function()
           if(editfile === "")
           {
             alert("Filename can't be empty");
-            return;
-
-
+            //return;
           }
           else if(editfile)
           {
@@ -308,7 +306,6 @@ $(function()
               console.log(error);  // Something went wrong.
               return;
             }
-
 
             filedatatemp = filedata;
             // loads the chosen file into the text area where it can be edited
