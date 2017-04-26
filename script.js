@@ -287,7 +287,7 @@ $(function()
           if(editfile === "")
           {
             alert("Filename can't be empty");
-            //return;
+            return;
           }
           else if(editfile)
           {
@@ -304,7 +304,7 @@ $(function()
               //saying to check that the file they are trying to edit exist
               alert("Filename could be incorrect, Try again");
               console.log(error);  // Something went wrong.
-              $('#textarea2').val(" ");
+
             }
 
             filedatatemp = filedata;
@@ -320,7 +320,7 @@ $(function()
                 {
                   // need to add validation in here
                   console.log(error);
-                  return;
+                  //return;
                 }
                 alert(editfile + ".txt has been edited and saved to Dropbox");
               });
