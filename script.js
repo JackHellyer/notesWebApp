@@ -304,7 +304,7 @@ $(function()
               //saying to check that the file they are trying to edit exist
               alert("Filename could be incorrect, Try again");
               console.log(error);  // Something went wrong.
-              
+              $('#textarea2').val('');
             }
 
             filedatatemp = filedata;
