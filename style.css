@@ -71,6 +71,7 @@ a{
 .inner
 {
   display: inline-block;
+  float: left;
 }
 
 #container #content #login:hover{
