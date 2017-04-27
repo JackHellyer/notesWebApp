@@ -3,7 +3,6 @@ body{
   margin:50px 0px 0px 0px;
   padding-bottom:100px;
   font-family: 'Open Sans', sans-serif;
-  background-color: #F2F1F1;
 }
 
 a{
@@ -15,7 +14,6 @@ a{
   margin:auto;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 10px 10px 0 #aaa;
   background: #fff;
 }
 #container #header{
@@ -233,4 +231,3 @@ a{
 #add a:last-child{
   margin:0px 0px 0px 0px;
 }
-
