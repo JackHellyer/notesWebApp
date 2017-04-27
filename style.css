@@ -63,7 +63,7 @@ a{
   border-radius:3px;
 }
 
-#outer
+#container #content #outer
 {
   width:100%;
   text-align: center;
