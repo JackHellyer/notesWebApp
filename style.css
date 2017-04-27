@@ -205,6 +205,9 @@ a{
 #add{
   overflow:hidden;
 }
+#addHeader{
+  margin-top: -25px;
+}
 #add textarea{
   width:calc(100% - 22px);
   border:1px solid #000;
