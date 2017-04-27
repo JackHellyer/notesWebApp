@@ -5,7 +5,7 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
-main{
+#main{
   margin: auto !important;
   padding: 0px;
   width: 1176px;
