@@ -108,6 +108,9 @@ a{
 #outer
 {
   width:100%;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
   text-align: center;
 }
 .inner
