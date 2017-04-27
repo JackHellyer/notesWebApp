@@ -11,6 +11,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 <body>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+    var myCenter = new google.maps.LatLng(55.8625105, -4.24948530000006);
+    var marker;
+
+    function initialize()
+    {
+        var mapProp = {
+            center:myCenter,
+            zoom:5,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        var infowindow = new google.maps.InfoWindow({
+            content:"<b>Bits &amp; Bytes</b><br/>26 Park Drive<br/> Glasgow"
+        });
+
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        var marker=new google.maps.Marker({
+            position:myCenter,
+            animation:google.maps.Animation.BOUNCE
+        });
+
+        marker.setMap(map);
+        infowindow.open(map, marker);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
   <!-- site container -->
   <div id="container">
 
@@ -28,8 +61,15 @@
     <div id="content">
 
 <!-- description and log in button section -->
-      <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+      <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+
+
+          <div id="googleMap" class="gMaps" style="width:600px;height:500px"></div>
+
+
+      </div>
     </div>
+
 <!-- divider line -->
 <div id="div-bar-mid"></div>
     <div id="footer">
