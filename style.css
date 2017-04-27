@@ -50,7 +50,7 @@ a{
 
 
 #login{
-  width: 140px;
+  width: 160px;
   height: 40px;
   overflow: hidden;
   text-align: center;
@@ -58,6 +58,7 @@ a{
   color:#fff;
   margin:auto auto 20px auto;
   border-radius:3px;
+  border:none;
 }
 
 #login:hover{
@@ -75,6 +76,7 @@ a{
   color:#fff;
   margin:auto auto 20px auto;
   border-radius:3px;
+  border:none;
 }
 
 #GoogleDrive:hover{
