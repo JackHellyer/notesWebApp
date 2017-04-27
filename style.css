@@ -242,13 +242,13 @@ a{
   font-size:16px;
   background:#007ee5;
   color:#fff;
-  float:right;
+  text-align: center;
   display: inline-block;
   border-radius:3px;
   padding:10px;
-  margin:0px 0px 20px 10px;
+  margin:0px auto 20px auto;
   width:calc(50%- 20px);
 }
 #add a:last-child{
-  margin:0px 0px 0px 0px;
+  margin:0px 0px 0px 10px;
 }
