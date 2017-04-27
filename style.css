@@ -53,7 +53,7 @@ a{
 
 #container #content #loginLine
 {
-  display: inline;
+  display: inline-block;
 }
 
 #container #content #loginLine #login{
