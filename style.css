@@ -53,14 +53,13 @@ a{
 
 
 #login{
-  width:100px;
-  height: 80px;
+  width: 140px;
+  height: 40px;
   overflow: hidden;
   text-align: center;
   background:#007ee5;
   color:#fff;
   margin:auto auto 20px auto;
-  padding:20px 0px 20px 0px;
   border-radius:3px;
 }
 
