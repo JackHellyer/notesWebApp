@@ -207,6 +207,8 @@ a{
 }
 #addHeader{
   margin-top: 0px;
+  font-size: 22px;
+  text-transform: uppercase;
 }
 #add textarea{
   width:calc(100% - 22px);
