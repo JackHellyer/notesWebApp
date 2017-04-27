@@ -45,6 +45,7 @@ a{
 
 #container #content #descText{
   margin: auto auto 20px auto;
+  font-size: 12px;
   max-width:700px;
 }
 
