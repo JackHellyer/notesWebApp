@@ -12,9 +12,10 @@
     </head>
 <body>
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD9XB3r6D5O2COuxB8LiUYcEpEOBaV5o3E&callback=initMap"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD9XB3r6D5O2COuxB8LiUYcEpEOBaV5o3E&callback=initMap"
+        type="text/javascript"></script>
 <script>
-    var myCenter = new google.maps.LatLng(55.8625105, -4.24948530000006);
+    var myCenter = new google.maps.LatLng(57.1184, -2.1410);
     var marker;
 
     function initialize()
@@ -26,7 +27,7 @@
         };
 
         var infowindow = new google.maps.InfoWindow({
-            content:"<b>Bits &amp; Bytes</b><br/>26 Park Drive<br/> Glasgow"
+            content:"<b>Quick Notes</b><br/>Robert Gordon University<br/> Aberdeen"
         });
 
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
@@ -65,7 +66,10 @@
 
 
 
-      </div <div id="googleMap" class="gMaps" style="width:1100px;height:700px; border:solid 5px; border-color:limegreenight:500px"></div>
+
+
+
+      </div> <div id="googleMap" style="width:600px;height:500px;hight:500px"></div>
     </div>
 
 <!-- divider line -->
