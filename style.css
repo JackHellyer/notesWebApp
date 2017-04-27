@@ -64,12 +64,15 @@ a{
   border-radius:3px;
 }
 
-
-#container #content #login #loginLine
+#outer
+{
+  width:100%;
+  text-align: center;
+}
+.inner
 {
   display: inline-block;
 }
-
 
 #container #content #login:hover{
   display: block;
