@@ -52,7 +52,7 @@ a{
 }
 
 
-#login{
+#DropBox{
   width: 140px;
   height: 40px;
   overflow: hidden;
@@ -62,6 +62,49 @@ a{
   margin:auto auto 20px auto;
   border-radius:3px;
 }
+
+#DropBox:hover{
+
+  background:#0071ce;
+  cursor: pointer;
+}
+
+#GoogleDrive{
+  width: 140px;
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  background:#CC0000;
+  color:#fff;
+  margin:auto auto 20px auto;
+  border-radius:3px;
+}
+
+#GoogleDrive:hover{
+
+  background:#0071ce;
+  cursor: pointer;
+}
+
+#Facebook{
+  width: 140px;
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  background:darkblue;
+  color:#fff;
+  margin:auto auto 20px auto;
+  border-radius:3px;
+}
+
+#Facebook:hover{
+
+  background:#0071ce;
+  cursor: pointer;
+}
+
+
+
 
 #container #content #outer
 {
@@ -74,11 +117,6 @@ a{
   float: left;
 }
 
-#container #content #login:hover{
-
-  background:#0071ce;
-  cursor: pointer;
-}
 #div-bar{
   width:50px;
   background:#000;
