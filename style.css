@@ -216,12 +216,12 @@ a{
 #add{
   overflow:hidden;
 }
-#editHeader{
+#editHeader b{
   margin-top: 0px;
   font-size: 22px;
   text-transform: uppercase;
 }
-#viewHeader{
+#viewHeader b{
   margin-top: 0px;
   font-size: 22px;
   text-transform: uppercase;
