@@ -202,6 +202,12 @@ a{
 .note .options a:last-child{
   margin:0px 0px 0px 0px;
 }
+.btn-tp{
+  width:150px;
+  height:40px;
+  color: #fff;
+  background: #007ee5;
+}
 #add{
   overflow:hidden;
 }
