@@ -370,4 +370,11 @@ $(function()
           });
         });
       }
+
+
+      if ($('#loggedin').text() == ''){
+        $('.oo').hide();
+      }else{
+        $('.oo').show();
+      }
 });
