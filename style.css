@@ -103,10 +103,7 @@ a{
   cursor: pointer;
 }
 
-
-
-
-#container #content #outer
+#outer
 {
   width:100%;
   text-align: center;
