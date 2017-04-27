@@ -199,7 +199,7 @@ a{
   width:100%;
   text-align: center;
 }
-#container #content #buttonLine #inner
+.inner
 {
   display: inline-block;
 }
