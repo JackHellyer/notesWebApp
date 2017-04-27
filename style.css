@@ -46,8 +46,9 @@ a{
   padding-bottom:20px;
 }
 
-#container #content #desc #descText{
+#container #content #descText{
   width: 350px;
+  margin: auto auto 20px auto
 }
 #container #content #login{
   display: block;
