@@ -51,12 +51,8 @@ a{
   margin: auto auto 20px auto
 }
 
-#container #content #loginLine
-{
-  display: inline-block;
-}
 
-#container #content #loginLine #login{
+#container #content #login{
   width:100%;
   overflow: hidden;
   text-align: center;
@@ -68,6 +64,11 @@ a{
   border-radius:3px;
 }
 
+
+#container #content #login #loginLine
+{
+  display: inline-block;
+}
 
 
 #container #content #login:hover{
