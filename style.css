@@ -216,6 +216,16 @@ a{
 #add{
   overflow:hidden;
 }
+#editHeader{
+  margin-top: 0px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+#viewHeader{
+  margin-top: 0px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
 #addHeader{
   margin-top: 0px;
   font-size: 22px;
