@@ -52,7 +52,7 @@ a{
 }
 
 
-#login{
+#container #content #login{
   width: 140px;
   height: 40px;
   overflow: hidden;
