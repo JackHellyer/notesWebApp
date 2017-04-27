@@ -73,7 +73,14 @@ a{
   display: inline-block;
 }
 
-#login:hover{
+#container #content #login:hover{
+  display: block;
+  width:100%;
+  overflow: hidden;
+  text-align: center;
+  background:#0071ce;
+  margin:auto auto 20px auto;
+  padding:20px 0px 20px 0px;
   border-radius:3px;
 }
 #div-bar{
