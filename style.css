@@ -193,3 +193,13 @@ a{
 #add a:last-child{
   margin:0px 0px 0px 0px;
 }
+
+#buttonLine
+{
+  width:100%;
+  text-align: center;
+}
+.inner
+{
+  display: inline-block;
+}
