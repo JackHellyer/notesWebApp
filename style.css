@@ -10,7 +10,7 @@ a{
   color:inherit;
 }
 #container{
-  width: 40%;
+  width: 80%;
   margin:auto;
   overflow: hidden;
   text-align: center;
@@ -44,8 +44,8 @@ a{
 }
 
 #container #content #descText{
-  width: 450px;
-  margin: auto auto 20px auto
+  margin: auto auto 20px auto;
+  max-width:700px;
 }
 
 
