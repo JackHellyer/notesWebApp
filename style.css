@@ -60,7 +60,10 @@ a{
   border-radius:3px;
   border:none;
 }
-
+.fb-like{
+  text-align: center;
+  margin: auto;
+}
 #login:hover{
 
   background:#0071ce;
