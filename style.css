@@ -207,6 +207,8 @@ a{
   height:40px;
   color: #fff;
   background: #007ee5;
+  border-radius: 3px;
+  border:none;
 }
 #add{
   overflow:hidden;
