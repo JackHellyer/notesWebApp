@@ -51,7 +51,7 @@ a{
   margin: auto auto 20px auto
 }
 #container #content #login{
-  display: block;
+  display: inline;
   width:100%;
   overflow: hidden;
   text-align: center;
@@ -194,12 +194,3 @@ a{
   margin:0px 0px 0px 0px;
 }
 
-#container #content #buttonLine
-{
-  width:100%;
-  text-align: center;
-}
-.inner
-{
-  display: inline-block;
-}
