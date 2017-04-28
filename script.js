@@ -343,7 +343,7 @@ $(function()
         });
       }
 
-
+      //hide html bar element on the home page when not logged in then show when logged in
       if ($('#loggedin').text() == ''){
         $('.oo').hide();
       }else{
