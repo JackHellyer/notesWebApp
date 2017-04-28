@@ -14,11 +14,8 @@ $(function()
       {
         //hiding unwanted parts at this point
         $('#login').hide();
-        //$('#textarea1').hide();
         $('#listdir').hide();
-        //$('#save').hide();
         $('#save2').hide();
-        //$('#cancel').hide();
         $('#editHeader').hide();
         $('#textarea2').hide();
         $('#textarea1').show();
@@ -43,34 +40,14 @@ $(function()
           }
           else if(filename)
           {
-            //code to try and stop people using the same file name, i'm not sure how to do this
-            /*client.readdir("/", function(error, entries)
-            {
-              if (error)
-              {
-                console.log(error);  // Something went wrong.
-                return;
-              }
-              // this will create an dialog box with a list of files
-              var filelist = (entries);
-              });
-              if(filelist.match(/filename.*//*))
-              {
-                alert("filename is unavailable");
-
-
-              }
-              else
-              {
-              */
               // takes the string from the textarea and saves that to dropbox under the filename entered by the user
               client.writeFile(filename + ".txt",$('#textarea1').val(), function(error)
               {
                 if (error)
                 {
                   //alert("Filename might already exist, Try a different name");
-                  // NOT TESTED alert(error);
-                  console.log(error);  // Something went wrong.
+                  //log any erros
+                  console.log(error);
                   return;
                 }
                 alert(filename + ".txt has been saved to your DropBox");
@@ -78,19 +55,16 @@ $(function()
         // reset the textarea to empty
         $('#textarea1').val('');
         }
-        //bracket for the commented out valadition for same file name}
         else
         {
           return;
         }
-      });
+        });
 
-        // we can probably get rid of this button as i have displayed the current files after you press
-        // the edit a file button.
-        //i was thinking we could have he textarea wth the file list in at on the left side of the page alongside
+        //allows the user to load a file in to an read only textbox
         $('#viewnotes').click(function ()
         {
-
+          //show the element we need
           $('#listdir').show();
           $('#textareaviewnote').show();
           $('#selectview').show();
@@ -104,74 +78,72 @@ $(function()
           $('#textarea2').hide();
           $('#loggedin').hide();
 
+          //reads all the file name from the quick notes folder in dropbox
           client.readdir("/", function(error, entries)
           {
             if (error)
             {
-              console.log(error);  // Something went wrong.
+              // log errors
+              console.log(error);
               return;
             }
             // this adds the list of files into the listdir textarea, this is the
-            //only way i found to have them load on a seperate line
             $('#listdir').val("CURRENT FILES: \n" + entries.join("\n"));
           });
           var viewfiletemp = "";
+          //select a file to view button
           $('#selectview').click(function()
           {
+              // asks the user which file they would like to edit, again this is not ideal as
+              // it isn't user friendly
+              var viewfile = prompt("Enter a filename to View?");
+              // makes sure that the user is returned without any issues when the press
+              // cancel on the dialog box
+              if(viewfile === "")
+              {
+                alert("Filename can't be empty");
+                return;
 
 
-          // asks the user which file they would like to edit, again this is not ideal as
-          // it isn't user friendly but i couldn't find another way to do this
-          var viewfile = prompt("Enter a filename to View?");
-          // makes sure that the user is return without any issues when the press
-          // cancel on the dialog box
-          if(viewfile === "")
-          {
-            alert("Filename can't be empty");
-            return;
+              }
+              else if(viewfile)
+              {
+
+              // read the file using the name the user has given
+              // i have found some code which shows a progress bar when you upload a file
+              // we could add that allow most are files are small
+              client.readFile(viewfile + ".txt", function(error, filedata)
+              {
+                if (error)
+                {
+
+                  alert("Filename could be incorrect, Try again");
+                  console.log(error);  // Something went wrong.
+                  return;
+                }
 
 
-          }
-          else if(viewfile)
-          {
+                viewfiletemp = filedata;
+                // loads the chosen file into the text area where it can be edited
+                $('#textareaviewnote').val("" + viewfiletemp);
+              });
+              }
+              else
+              {
+                  return;
+              }
 
-          // read the file using the name the user has given, we don't have
-          // any validation here need to add
-          // i have found some code which shows a progress bar when you upload a file
-          // we could add that
-          client.readFile(viewfile + ".txt", function(error, filedata)
-          {
-            if (error)
-            {
-              // we could keep in this error validation or just write are own
-              //saying to check that the file they are trying to edit exist
-              //alert("Filename could be incorrect, Try again");
-              console.log(error);  // Something went wrong.
-              return;
-            }
+              /*client.readdir("/", function(error, entries)
+              {
+                if (error)
+                {
+                  console.log(error);  // Something went wrong.
+                  return;
+                }
+                // this will create an dialog box with a list of files
+                alert("Your Dropbox contains: \n" + entries.join("\n "));
 
-
-            viewfiletemp = filedata;
-            // loads the chosen file into the text area where it can be edited
-            $('#textareaviewnote').val("" + viewfiletemp);
-          });
-          }
-          else
-          {
-              return;
-          }
-
-          /*client.readdir("/", function(error, entries)
-          {
-            if (error)
-            {
-              console.log(error);  // Something went wrong.
-              return;
-            }
-            // this will create an dialog box with a list of files
-            alert("Your Dropbox contains: \n" + entries.join("\n "));
-
-          });*/
+              });*/
         });
       });
         // shows that the user is authenticated
